@@ -2,7 +2,7 @@
 Android Dagger2 Tutorial
 
 #### Add to gradle file
-```
+```java
 compile 'com.google.dagger:dagger:2.11'
 compile 'com.google.dagger:dagger-android:2.11'
 annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
@@ -13,7 +13,7 @@ annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 
 #### AppData.java
 Creating a Object class
-```
+```java
 public class AppData {
     String name;
     public String getName() {
@@ -30,7 +30,7 @@ public class AppData {
 #### NetModule.java
 this is class where we create objects for our classes.
 
-```
+```java
 @Module
 public class NetModule {
 
@@ -47,7 +47,7 @@ public class NetModule {
 
  In this,we are defining in which activty or fragment we need object which we have created in NetModule class
 
-```
+```java
 
 @Singleton
 @Component(modules = {NetModule.class})
@@ -63,8 +63,9 @@ public interface NetComponent {
 #### MyApplication.java
 
  Creating netComponent object
+ 
+```java
 
-```
 public class MyApplication extends Application {
 
     private NetComponent netComponent;
@@ -83,7 +84,9 @@ public class MyApplication extends Application {
 ```
 
 #### Change Mainfeast File
-```
+
+```java
+ 
  <application
         android:name=".DaggerModules.MyApplication"
         android:allowBackup="true"
@@ -98,7 +101,8 @@ public class MyApplication extends Application {
 
 #### Useablilty
 
-```
+```java
+
 public class MainActivity extends AppCompatActivity {
 
     //This is injection of object
